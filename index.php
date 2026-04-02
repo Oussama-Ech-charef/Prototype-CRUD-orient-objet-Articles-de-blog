@@ -1,6 +1,6 @@
 <?php
-require_once 'connexion.php';
-require_once 'Article.php';
+require 'connexion.php';
+require 'Article.php';
 
 $database = new Database();
 $db = $database->getConnection();

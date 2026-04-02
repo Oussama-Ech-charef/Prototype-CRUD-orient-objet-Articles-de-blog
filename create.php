@@ -1,6 +1,6 @@
 <?php
-require_once 'connexion.php';
-require_once 'article.php';
+require 'connexion.php';
+require 'article.php';
 
 $database = new Database();
 $db = $database->getConnection();
@@ -13,8 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $publish_date = $_POST['publish_date'];
     
   
-    $id_user = 1; 
-    $id_category = 1;
+
 
     if ($article->create($title, $content, $publish_date)) {
         header("Location: index.php");
