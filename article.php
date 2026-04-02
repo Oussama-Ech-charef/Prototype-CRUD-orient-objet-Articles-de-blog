@@ -24,10 +24,10 @@ class Article {
     }
 
 
-    public function create($title, $content, $id_user, $id_category) {
+    public function create($title, $content, $publish_date) {
 
-        $sql = "INSERT INTO  posts (title, content, id_user, id_category) 
-                       VALUES (:title, :content, :id_user, :id_category)";
+        $sql = "INSERT INTO  posts (title, content, publish_date) 
+                       VALUES (:title, :content, :publish_date)";
 
         $stmt = $this->conn->prepare($sql);
 
@@ -35,8 +35,7 @@ class Article {
 
             ':title'        => $title,
             ':content'      => $content,
-            ':id_user'      => $id_user,
-            ':id_category'  => $id_category
+            ':publish_date'      => $publish_date
         ]);
 
     }

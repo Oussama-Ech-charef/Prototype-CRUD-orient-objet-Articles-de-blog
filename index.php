@@ -43,30 +43,27 @@ $articles = $post->all();
     <table>
         <thead>
             <tr>
-                <th>ID</th>
-                <th>Title</th>
-                <th>Content</th>
-                <th>Publish Date</th>
+                <th>ID</th><th>Title</th><th>Content</th><th>Publish Date</th>
             </tr>
         </thead>
+        
         <tbody>
-            <?php if (!empty($articles)): ?>
-                <?php foreach ($articles as $row): ?>
-                    <tr>
-                        <td><?php echo $row['id_post']; ?></td>
-                        
-                        <td style="max-width: 200px;word-wrap: break-word;"><?php echo htmlspecialchars($row['title']); ?></td>
-                        
-                        <td style="max-width: 200px;word-wrap: break-word;"><?php echo htmlspecialchars($row['content']); ?></td>
-                        
-                        <td><?php echo $row['publish_date']; ?></td>
-                    </tr>
-                <?php endforeach; ?>
-            <?php else: ?>
-                <tr>
-                    <td colspan="4" style="text-align:center;">No posts found.</td>
-                </tr>
-            <?php endif; ?>
+            <?php 
+                if (!empty($articles)) {
+                    foreach ($articles as $article) {
+                        echo "<tr>";
+                        echo "<td>" . $article['id_post'] . "</td>";
+                        echo "<td style='max-width: 200px;word-wrap: break-word;'>" . htmlspecialchars($article['title']) . "</td>";
+                        echo "<td style='max-width: 200px;word-wrap: break-word;'>" . htmlspecialchars($article['content']) . "</td>";
+                        echo "<td>" . $article['publish_date'] . "</td>";
+                        echo "</tr>";
+                    } 
+                } else {
+                        echo "<tr>";
+                        echo "<td colspan='4' style='text-align:center;'> No posts found.</td>";
+                        echo "</tr>";
+                }
+            ?>
         </tbody>
     </table>
 
