@@ -1,14 +1,25 @@
 <?php
+
+
+
+
 require 'connexion.php';
 require 'article.php';
 
-$database = new Database();
+
+$database = new Database() ;
 $db = $database->getConnection();
 
 $post = new Article($db);
 
+
+
 $articles = $post->all();
+
+
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en"> <head>
@@ -18,7 +29,7 @@ $articles = $post->all();
         table {
              width: 80%;
             margin: 20px auto;
-            /* border-collapse: collapse; */
+            border-collapse: collapse;
             font-family: sans-serif;
              }
         th, td {
@@ -51,18 +62,17 @@ $articles = $post->all();
             <?php 
                 if (!empty($articles)) {
                     foreach ($articles as $article) {
+
                         echo "<tr>";
+
                         echo "<td>" . $article['id_post'] . "</td>";
-                        echo "<td style='max-width: 200px;word-wrap: break-word;'>" . htmlspecialchars($article['title']) . "</td>";
-                        echo "<td style='max-width: 200px;word-wrap: break-word;'>" . htmlspecialchars($article['content']) . "</td>";
+                        echo "<td>" . htmlspecialchars($article['title']) . "</td>";
+                        echo "<td>" . htmlspecialchars( $article['content']) . "</td>";
                         echo "<td>" . $article['publish_date'] . "</td>";
                         echo "</tr>";
-                    } 
-                } else {
-                        echo "<tr>";
-                        echo "<td colspan='4' style='text-align:center;'> No posts found.</td>";
-                        echo "</tr>";
-                }
+                    }
+                } 
+            
             ?>
         </tbody>
     </table>
