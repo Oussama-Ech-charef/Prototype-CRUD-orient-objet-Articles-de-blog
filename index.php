@@ -68,7 +68,7 @@ $articles = $post->all();
         <tbody>
 
             <?php 
-                if (!empty($articles)) {
+                
                     foreach ($articles as $article) {
                         echo "<tr>";
                         echo "<td>" . $article['id_post'] . "</td>";
@@ -81,7 +81,7 @@ $articles = $post->all();
 
 
                     
-                }
+                
             
             ?>
 
