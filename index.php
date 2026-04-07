@@ -5,10 +5,7 @@ require 'connexion.php';
 
 require 'article.php';
 
-$id = 1;
-$title = "First Post2";
-$content = "This is my first blog post2";
-$publish_date = "2026-04-02";
+
 
 
 $database = new Database();
@@ -16,10 +13,6 @@ $db = $database->getconnection();
 
 $post = new Article($db);
 
-
-$post->update($id, $title, $content, $publish_date);
-
-$post->delete(21);
 $articles = $post->all();
 
 ?>
