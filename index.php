@@ -44,7 +44,7 @@ $articles = $post->all();
              text-align: center;
              color: #333;
              }
- </style>
+</style>
 </head>
 <body>
 
@@ -67,7 +67,7 @@ $articles = $post->all();
                         echo "<td>" . $article['id_post'] . "</td>";
                         echo "<td>" . $article['title'] . "</td>";
                         echo "<td>" . $article['content'] . "</td>";
-                        echo "<td>" . date('Y - m - d', strtotime($article['publish_date'])) . "</td>";
+                        echo "<td>" . $article['publish_date'] . "</td>";
                         echo "</tr>";
 
                     }

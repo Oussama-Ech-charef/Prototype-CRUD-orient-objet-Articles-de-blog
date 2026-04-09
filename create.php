@@ -19,9 +19,10 @@
         $title = htmlspecialchars($_POST['title']);
         $content = htmlspecialchars($_POST['content']);
         $id_user = $_POST['id_user'];
+        $publish_date = date('Y-m-d H:i:s');
 
 
-        if ($article->create($title, $content, $id_user)) {
+        if ($article->create($title, $content, $id_user ,$publish_date)) {
             header("Location: index.php");
             exit();
         } else {
