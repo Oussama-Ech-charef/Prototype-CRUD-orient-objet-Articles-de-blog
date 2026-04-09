@@ -67,7 +67,7 @@ $articles = $post->all();
                         echo "<td>" . $article['id_post'] . "</td>";
                         echo "<td>" . $article['title'] . "</td>";
                         echo "<td>" . $article['content'] . "</td>";
-                        echo "<td>" . $article['publish_date'] . "</td>";
+                        echo "<td>" . date('M d, Y', strtotime($article['publish_date'])) . "</td>";
                         echo "</tr>";
 
                     }
