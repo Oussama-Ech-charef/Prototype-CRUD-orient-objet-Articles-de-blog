@@ -1,26 +1,26 @@
-<?PHP 
+<?php
 
 
 class Database {
-     private $host= "localhost";
-     private $dbname= "blog_db";
-     private $username= "root";
-     private $password= "";
+    private $host = "localhost";
+    private $dbname = "blog_db";
+    private $username = "root";
+    private $password = "";
 
 
+    public $conn;
 
-     public $conn;
 
+    public function getConnection(){
 
-     public function getconnection() {
         try {
-            $this->conn = new PDO(
-                "mysql:host={$this->host};dbname={$this->dbname};", $this->username, $this->password);
-                $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        } catch (PDOException $e) {
-            echo "Error : " . $e->getMessage();
-        }
+            $this->conn = new PDO("mysql:host={$this->host};dbname={$this->dbname}", $this->username, $this->password);
+            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            
 
+        } catch (PDOException $e) {
+            echo "Connection Error : " . $e->getMessage();
+        }
         return $this->conn;
-     }
+    }
 }
