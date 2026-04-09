@@ -18,10 +18,10 @@
     if($_SERVER['REQUEST_METHOD'] == "POST") {
         $title = htmlspecialchars($_POST['title']);
         $content = htmlspecialchars($_POST['content']);
-        $publish_date = $_POST['publish_date'];
+        $id_user = $_POST['id_user'];
 
 
-        if ($article->create($title, $content, $publish_date)) {
+        if ($article->create($title, $content, $id_user)) {
             header("Location: index.php");
             exit();
         } else {
@@ -61,7 +61,7 @@
         <form action="create.php" method="POST">
             <input type="text" name="title" placeholder="Enter post title" required><br><br>
             <textarea name="content" rows="5" placeholder="Enter post content" required></textarea><br><br>
-            <input type="date" name="publish_date" required> <br><br>
+            <input type="number" name="id_user" placeholder="User ID" required><br><br>
             <button type="submit">Publish Post</button>
         </form>
         <a href="index.php">Back to List</a>

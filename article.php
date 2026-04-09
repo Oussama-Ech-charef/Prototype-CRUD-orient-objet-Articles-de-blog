@@ -20,16 +20,17 @@ class Article {
 
 
 
-    public function create($title, $content, $publish_date) {
-        $sql = "insert into posts (title, content, publish_date)
-                    values (:title, :content, :publish_date)";
+    public function create($title, $content, $id_user) {
+        $sql = "insert into posts (title, content, id_user)
+                    values (:title, :content, :id_user)";
 
                     $stmt = $this->conn->prepare($sql);
 
                     return $stmt->execute([
                         ':title' => $title,
                         ':content' => $content,
-                        ':publish_date' => $publish_date
+                        ':id_user' => $id_user
+                        
                     ]);
     }
     
